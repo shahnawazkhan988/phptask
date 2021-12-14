@@ -1,6 +1,6 @@
 <?php 
 
-$url = 'xmlfile2.xml';
+$url = 'xmlfile.xml';
 $xml = simplexml_load_file($url); 
 
 class Rxml 
@@ -12,10 +12,6 @@ class Rxml
         header("Content-Disposition: attachment; filename=$filename");       
         $output = fopen("php://output", "w");  
         $header= ['generated id', 'first name', 'surname'];
-        $userCount = "";
-        $userFirstName = "";
-        $userSurName = "";
-        $uData = array();
         fputcsv($output, $header,',','"');   
 
     	$xml = simplexml_load_file($url);
@@ -37,7 +33,7 @@ class Rxml
         } 
         else 
         {
-          exit('Failed to open test.xml.');
+          exit('Failed to open xmlfile.xml.');
         }
 
 
